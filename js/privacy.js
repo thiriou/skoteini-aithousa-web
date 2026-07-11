@@ -106,3 +106,4 @@ function renderPrivacyPolicy(selector) {
 document.addEventListener('DOMContentLoaded', () => {
   renderPrivacyPolicy('#privacy-policy-content');
 });
+ 

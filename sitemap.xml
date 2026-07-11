@@ -1,143 +1,18 @@
-<!DOCTYPE html>
-<html lang="el" class="h-full scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Γίνε Beta Tester — σκοτεινή αίθουσα</title>
-  <meta name="description" content="Δοκίμασε πρώτος τις νέες λειτουργίες της σκοτεινή αίθουσα πριν από την επίσημη κυκλοφορία.">
-  <link rel="canonical" href="https://skotiniaithousa.gr/beta.html">
-
-  <!-- Favicon / Manifest -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="manifest" href="/site.webmanifest">
-
-  <!-- Google Fonts (Inter & Manrope with Greek subsets) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/tailwind-config.js"></script>
-
-  <!-- Site styles -->
-  <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body class="min-h-full flex flex-col font-sans selection:bg-primary selection:text-bgDark cinematic-grid antialiased">
-
-  <a href="#main-content" class="absolute top-[-100px] left-4 bg-primary text-bgDark px-4 py-2 rounded font-semibold transition-all focus:top-4 z-50 focus:outline-none">
-    Παράκαμψη στο περιεχόμενο
-  </a>
-
-  <div class="film-grain" aria-hidden="true"></div>
-  <div class="absolute top-[-10%] left-[-20%] w-[80%] h-[70%] rounded-full projector-glow -z-10 animate-projector"></div>
-  <div class="absolute top-[40%] right-[-10%] w-[60%] h-[65%] rounded-full ambient-light-purple -z-10 animate-pulse duration-[8000ms]"></div>
-
-  <header class="sticky top-0 z-40 w-full border-b border-white/5 bg-[#0D1321]/85 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 focus:outline-none" aria-label="σκοτεινή αίθουσα Αρχική">
-        <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783697209/app_title_logo_white_ic_p8ubfq.png" alt="σκοτεινή αίθουσα" loading="eager" class="h-[18px] sm:h-[22px] w-auto select-none">
-      </a>
-
-      <nav class="hidden md:flex items-center gap-8" aria-label="Κύριο Μενού">
-        <a href="index.html" class="text-sm text-whiteText/75 hover:text-primary transition-colors focus:text-primary">Αρχική</a>
-        <a href="index.html#features" class="text-sm text-whiteText/75 hover:text-primary transition-colors focus:text-primary">Δυνατότητες</a>
-        <a href="index.html#gallery" class="text-sm text-whiteText/75 hover:text-primary transition-colors focus:text-primary">Στιγμιότυπα</a>
-        <a href="index.html#faq" class="text-sm text-whiteText/75 hover:text-primary transition-colors focus:text-primary">Συχνές Ερωτήσεις</a>
-      </nav>
-
-      <div>
-        <a href="#beta" class="h-11 px-6 rounded-xl border border-white/10 hover:border-primary/50 hover:bg-primary/5 text-whiteText text-sm font-bold tracking-tight transition-all flex items-center justify-center cursor-pointer whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary">
-          <span class="leading-none">Γίνε Beta Tester</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main id="main-content" class="flex-grow">
-    <section id="beta" class="py-24">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purpleAccent/10 bg-purpleAccent/5 text-xs font-semibold text-purpleAccent mb-6">
-            <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
-            <span>Android Beta Πρόγραμμα</span>
-          </div>
-          <h2 class="font-logo font-bold text-3xl sm:text-4xl text-whiteText mb-6">
-            Γίνε beta tester
-          </h2>
-          <p class="text-whiteText/80 text-base sm:text-lg leading-relaxed font-light">
-            Δοκίμασε πρώτος τις νέες λειτουργίες της σκοτεινή αίθουσα πριν από την επίσημη κυκλοφορία.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Card 1: Ενεργοποίησε την πρόσβαση -->
-          <div class="p-8 rounded-3xl bg-[#111A2E] border border-white/5 shadow-2xl relative overflow-hidden flex flex-col items-start text-left">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
-            <div class="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6">
-              <i data-lucide="key-round" class="w-6 h-6"></i>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-semibold text-whiteText mb-3 font-logo">1. Ενεργοποίησε την πρόσβαση</h3>
-            <p class="text-whiteText/70 text-sm mb-8 leading-relaxed font-light">
-              Γίνε μέλος της ομάδας δοκιμών της Google.
-            </p>
-            <a href="JOIN_GROUP_URL" class="w-full h-12 mt-auto rounded-xl bg-primary hover:bg-primary/90 text-bgDark font-bold text-sm tracking-tight transition-all focus:outline-none focus:ring-2 focus:ring-primary flex items-center justify-center gap-2 cursor-pointer shadow-lg whitespace-nowrap">
-              <span class="leading-none">Ενεργοποίηση</span>
-            </a>
-          </div>
-
-          <!-- Card 2: Κατέβασε την εφαρμογή -->
-          <div class="p-8 rounded-3xl bg-[#111A2E] border border-white/5 shadow-2xl relative overflow-hidden flex flex-col items-start text-left">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-purpleAccent/5 rounded-full blur-2xl pointer-events-none"></div>
-            <div class="w-12 h-12 rounded-2xl bg-purpleAccent/10 border border-purpleAccent/20 flex items-center justify-center text-purpleAccent mb-6">
-              <i data-lucide="download" class="w-6 h-6"></i>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-semibold text-whiteText mb-3 font-logo">2. Κατέβασε την εφαρμογή</h3>
-            <p class="text-whiteText/70 text-sm mb-8 leading-relaxed font-light">
-              Η εγκατάσταση από το Google Play θα είναι διαθέσιμη μόλις ανοίξει η beta.
-            </p>
-            <div role="button" aria-disabled="true" tabindex="-1" class="w-full mt-auto h-12 rounded-xl bg-zinc-700/50 border border-zinc-500/30 text-zinc-400 font-bold text-sm tracking-tight flex items-center justify-center gap-2 cursor-not-allowed pointer-events-none select-none whitespace-nowrap">
-              <span class="leading-none">Google Play Beta</span>
-            </div>
-          </div>
-        </div>
-
-        <p class="text-center text-xs text-whiteText/50 mt-10 max-w-xl mx-auto leading-relaxed">
-          Πρώτα ενεργοποίησε την πρόσβαση και στη συνέχεια άνοιξε το Google Play. Διαφορετικά η beta δεν θα είναι διαθέσιμη.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="border-t border-white/5 py-12 bg-bgDark">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3">
-        <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783697209/app_title_logo_white_ic_p8ubfq.png" alt="σκοτεινή αίθουσα" loading="lazy" class="h-[18px] w-auto select-none">
-      </div>
-
-      <div class="flex flex-col items-center md:items-end gap-2">
-        <a href="index.html" class="text-xs text-whiteText/50 hover:text-primary transition-colors underline underline-offset-2 decoration-white/20 hover:decoration-primary/50">
-          Αρχική
-        </a>
-        <a href="privacy.html" class="text-xs text-whiteText/50 hover:text-primary transition-colors underline underline-offset-2 decoration-white/20 hover:decoration-primary/50">
-          Πολιτική Απορρήτου / Privacy Policy
-        </a>
-        <a href="mailto:elenivoreopoulou@gmail.com" class="text-xs text-whiteText/50 hover:text-primary transition-colors underline underline-offset-2 decoration-white/20 hover:decoration-primary/50">
-          Contact
-        </a>
-        <p class="text-xs text-whiteText/40 text-center md:text-right font-light">
-          © <span id="year"></span> σκοτεινή αίθουσα.<br>
-          App UI/UX & Website Design: Thanos Thiriou<br>
-          This product uses the TMDB API but is not endorsed or certified by TMDB.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/router.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://skotiniaithousa.gr/index.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://skotiniaithousa.gr/beta.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skotiniaithousa.gr/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

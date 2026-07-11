@@ -1,40 +1,520 @@
-// σκοτεινή αίθουσα — Tailwind config
-// Extracted verbatim from the original inline tailwind.config script.
-// Must load AFTER the Tailwind CDN <script> tag and BEFORE any content
-// that relies on the custom theme classes.
+<!DOCTYPE html>
+<html lang="el" class="h-full scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>σκοτεινή αίθουσα — Τα σινεμά της Αθήνας σε μία εφαρμογή</title>
+  <meta name="description" content="Ανακαλύψτε όλες τις προβολές, τις ταινίες και τους κινηματογράφους της Αθήνας.">
+  <link rel="canonical" href="https://skotiniaithousa.gr/">
 
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        logo: ['Manrope', 'sans-serif'],
-      },
-      colors: {
-        bgDark: '#0D1321',
-        cardDark: '#111A2E',
-        primary: '#06D46D',
-        whiteText: '#F7F5F1',
-        purpleAccent: '#D8B4FE',
-        yellowAccent: '#FACC15',
-        orangeAccent: '#FF7B2F',
-        pinkAccent: '#FF0099',
-      },
-      animation: {
-        projector: 'projector 8s infinite alternate ease-in-out',
-        float: 'float 6s infinite ease-in-out',
-      },
-      keyframes: {
-        projector: {
-          '0%': { opacity: '0.15', transform: 'scale(1) translate(0px, 0px) rotate(0deg)', filter: 'blur(80px)' },
-          '50%': { opacity: '0.25', transform: 'scale(1.15) translate(20px, -15px) rotate(5deg)', filter: 'blur(100px)' },
-          '100%': { opacity: '0.18', transform: 'scale(0.95) translate(-10px, 20px) rotate(-3deg)', filter: 'blur(90px)' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        }
-      }
-    }
-  }
-}
+  <!-- Favicon / Manifest -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Google Fonts (Inter & Manrope with Greek subsets) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-full flex flex-col font-sans selection:bg-primary selection:text-bgDark cinematic-grid antialiased">
+
+  <!-- Skip to content -->
+  <a href="#main-content" class="absolute top-[-100px] left-4 bg-primary text-bgDark px-4 py-2 rounded font-semibold transition-all focus:top-4 z-50 focus:outline-none">
+    Παράκαμψη στο περιεχόμενο
+  </a>
+
+  <!-- Film Grain -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- Background Glows -->
+  <div class="absolute top-[-10%] left-[-20%] w-[80%] h-[70%] rounded-full projector-glow -z-10 animate-projector"></div>
+  <div class="absolute top-[40%] right-[-10%] w-[60%] h-[65%] rounded-full ambient-light-purple -z-10 animate-pulse duration-[8000ms]"></div>
+  <div class="absolute bottom-[-10%] left-[10%] w-[50%] h-[50%] rounded-full ambient-light-orange -z-10 animate-pulse duration-[6000ms]"></div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 w-full border-b border-white/5 bg-[#0D1321]/85 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 focus:outline-none" aria-label="σκοτεινή αίθουσα Αρχική">
+        <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783697209/app_title_logo_white_ic_p8ubfq.png" alt="σκοτεινή αίθουσα" loading="eager" class="h-[18px] sm:h-[22px] w-auto select-none">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Κύριο Μενού">
+        <a href="#features" class="text-sm text-whiteText/75 hover:text-primary transition-colors focus:text-primary">Δυνατότητες</a>
+        <a href="#gallery"  class="text-sm text-whiteText/75 hover:text-primary transition-colors focus:text-primary">Στιγμιότυπα</a>
+        <a href="#cinemas"  class="text-sm text-whiteText/75 hover:text-primary transition-colors focus:text-primary">Αίθουσες</a>
+        <a href="#genres"   class="text-sm text-whiteText/75 hover:text-primary transition-colors focus:text-primary">Είδη</a>
+        <a href="#faq"      class="text-sm text-whiteText/75 hover:text-primary transition-colors focus:text-primary">Συχνές Ερωτήσεις</a>
+      </nav>
+
+      <div>
+        <a href="#beta" class="h-11 px-6 rounded-xl border border-white/10 hover:border-primary/50 hover:bg-primary/5 text-whiteText text-sm font-bold tracking-tight transition-all flex items-center justify-center cursor-pointer whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary">
+          <span class="leading-none">Γίνε Beta Tester</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="flex-grow">
+
+    <!-- ─── Hero ─────────────────────────────────────────────── -->
+    <section class="relative pt-16 pb-24 md:pt-28 md:pb-36 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+        <!-- Hero Text -->
+        <div class="lg:col-span-7 flex flex-col items-start text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-cardDark/60 text-xs font-semibold text-primary mb-6 shadow-inner">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Το Cinema App της Αθήνας</span>
+          </div>
+
+          <h1 class="font-logo font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.1] mb-6 text-whiteText">
+            Τα σινεμά της Αθήνας,<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purpleAccent to-orangeAccent">
+              σε μία εφαρμογή.
+            </span>
+          </h1>
+
+          <p class="text-whiteText/80 text-lg sm:text-xl leading-relaxed max-w-2xl mb-8 font-light">
+            Όλες οι αίθουσες, οι ταινίες και οι ώρες προβολών της Αττικής.
+          </p>
+
+          <div class="flex flex-col sm:flex-row sm:items-start gap-4 w-full sm:w-auto">
+            <a href="#beta" class="h-14 px-8 sm:px-10 rounded-xl bg-primary hover:bg-primary/95 text-bgDark font-bold text-base tracking-tight transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-lg shadow-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-bgDark w-full sm:flex-[1.15] whitespace-nowrap">
+              <i data-lucide="key-round" class="w-5 h-5 shrink-0"></i>
+              <span class="leading-none">Ενεργοποίησε την πρόσβαση</span>
+            </a>
+            <div role="button" aria-disabled="true" tabindex="-1" class="h-14 w-full sm:flex-1 px-8 rounded-xl bg-zinc-700/50 border border-zinc-500/30 text-zinc-400 font-bold text-base tracking-tight flex items-center justify-center gap-2 cursor-not-allowed pointer-events-none select-none whitespace-nowrap">
+              <i data-lucide="download" class="w-5 h-5 shrink-0"></i>
+              <span class="leading-none">Κατέβασε την εφαρμογή</span>
+            </div>
+          </div>
+
+          <!-- Stats Bar -->
+          <div class="mt-12 pt-8 border-t border-white/5 grid grid-cols-3 gap-8 w-full max-w-lg">
+            <div>
+              <span class="block font-logo text-2xl font-bold text-whiteText">100+</span>
+              <span class="text-xs text-whiteText/50 uppercase tracking-wider font-semibold">Κινηματογράφοι</span>
+            </div>
+            <div>
+              <span class="block font-logo text-2xl font-bold text-whiteText">300+</span>
+              <span class="text-xs text-whiteText/50 uppercase tracking-wider font-semibold">Προβολές / Ημέρα</span>
+            </div>
+            <div>
+              <span class="block font-logo text-2xl font-bold text-whiteText">0%</span>
+              <span class="text-xs text-whiteText/50 uppercase tracking-wider font-semibold">Διαφημίσεις</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Device Mockup -->
+        <div class="lg:col-span-5 flex justify-center relative">
+          <div class="absolute inset-0 bg-primary/5 blur-[120px] rounded-full -z-10"></div>
+          <div class="relative w-[280px] h-[570px] sm:w-[310px] sm:h-[630px] rounded-[48px] border-[10px] border-[#1f2937] bg-[#000] p-1.5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 overflow-hidden animate-float">
+            <div class="absolute top-4 left-1/2 z-30 h-4 w-24 -translate-x-1/2 rounded-full bg-[#000]"></div>
+            <div class="absolute top-2 left-1/2 z-30 h-1 w-12 -translate-x-1/2 rounded-full bg-[#374151]"></div>
+            <div class="pointer-events-none absolute inset-0 z-20 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08]"></div>
+            <div class="relative w-full h-full rounded-[40px] overflow-hidden bg-bgDark border border-white/5">
+              <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783757433/06_uwpehg.png" alt="σκοτεινή αίθουσα Splash" class="w-full h-full object-cover object-top select-none">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Features ─────────────────────────────────────────── -->
+    <section id="features" class="py-24 border-t border-white/5 bg-cardDark/20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+          <h2 class="text-primary text-sm uppercase tracking-wider font-bold mb-3">Σχεδιασμένο για Σινεφίλ</h2>
+          <p class="font-logo font-bold text-3xl sm:text-4xl text-whiteText">
+            Η εμπειρία της σκοτεινής αίθουσας ξεκινά πριν μπεις στο σινεμά
+          </p>
+        </div>
+
+        <div class="space-y-32">
+          <!-- Feature 1 -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 flex justify-center order-last lg:order-first">
+              <div class="relative w-[280px] h-[570px] sm:w-[310px] sm:h-[630px] rounded-[48px] border-[10px] border-[#1f2937] bg-[#000] p-1.5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 overflow-hidden">
+                <div class="absolute top-4 left-1/2 z-30 h-4 w-24 -translate-x-1/2 rounded-full bg-[#000]"></div>
+                <div class="relative w-full h-full rounded-[40px] overflow-hidden bg-bgDark border border-white/5">
+                  <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783757433/01_wubtth.png" alt="Αναλυτικό πρόγραμμα, τιμές & χάρτες" class="w-full h-full object-cover object-top">
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-6 flex flex-col items-start text-left">
+              <div class="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6">
+                <i data-lucide="film" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-logo font-bold text-2xl sm:text-3xl text-whiteText mb-4">
+                Αναλυτικό πρόγραμμα, τιμές &amp; χάρτες
+              </h3>
+              <p class="text-whiteText/70 text-base leading-relaxed mb-6 font-light">
+                Βρείτε συγκεντρωμένες όλες τις πληροφορίες για κάθε κινηματογράφο της Αθήνας. Από τα παγκοσμίας φήμης έως τα πιο κρυμμένα θερινά, δείτε τιμές εισιτηρίων, μειωμένα, ημέρες προσφορών, τηλέφωνα επικοινωνίας και οδηγίες πλοήγησης με ένα κλικ.
+              </p>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary text-[10px] font-bold flex-shrink-0">✓</span>
+                  <span class="text-sm text-whiteText/85">Ταξινόμηση ανά ημέρα και ώρα προβολής</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary text-[10px] font-bold flex-shrink-0">✓</span>
+                  <span class="text-sm text-whiteText/85">Πληροφορίες για μειωμένα εισιτήρια και προσφορές</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary text-[10px] font-bold flex-shrink-0">✓</span>
+                  <span class="text-sm text-whiteText/85">Άμεση κλήση τηλεφώνου &amp; πλοήγηση μέσω Google Maps</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 flex flex-col items-start text-left">
+              <div class="w-12 h-12 rounded-2xl bg-purpleAccent/10 border border-purpleAccent/20 flex items-center justify-center text-purpleAccent mb-6">
+                <i data-lucide="sliders" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-logo font-bold text-2xl sm:text-3xl text-whiteText mb-4">
+                Φίλτρα ανά είδος, ημερομηνία &amp; ώρα
+              </h3>
+              <p class="text-whiteText/70 text-base leading-relaxed mb-6 font-light">
+                Θέλετε να δείτε δραματική ταινία απόψε μετά τις 21:00; Ή μήπως ψάχνετε μεταγλωττισμένες προβολές για το Σαββατοκύριακο; Με τα έξυπνα φίλτρα της σκοτεινής αίθουσας, βρίσκετε ακριβώς αυτό που ταιριάζει στη διάθεσή σας μέσα σε δευτερόλεπτα.
+              </p>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-purpleAccent/20 flex items-center justify-center text-purpleAccent text-[10px] font-bold flex-shrink-0">✓</span>
+                  <span class="text-sm text-whiteText/85">Αναζήτηση με βάση 15+ κινηματογραφικά είδη</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-purpleAccent/20 flex items-center justify-center text-purpleAccent text-[10px] font-bold flex-shrink-0">✓</span>
+                  <span class="text-sm text-whiteText/85">Γρήγορη εναλλαγή ημερομηνιών της εβδομάδας</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-purpleAccent/20 flex items-center justify-center text-purpleAccent text-[10px] font-bold flex-shrink-0">✓</span>
+                  <span class="text-sm text-whiteText/85">Έξυπνα tags για Θερινά, IMAX και Προσβάσιμα σινεμά</span>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-6 flex justify-center">
+              <div class="relative w-[280px] h-[570px] sm:w-[310px] sm:h-[630px] rounded-[48px] border-[10px] border-[#1f2937] bg-[#000] p-1.5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 overflow-hidden">
+                <div class="absolute top-4 left-1/2 z-30 h-4 w-24 -translate-x-1/2 rounded-full bg-[#000]"></div>
+                <div class="relative w-full h-full rounded-[40px] overflow-hidden bg-bgDark border border-white/5">
+                  <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783757433/02_df7i92.png" alt="Φίλτρα ανά είδος, ημερομηνία & ώρα" class="w-full h-full object-cover object-top">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Gallery / UI Section ────────────────────────────── -->
+    <section id="gallery" class="py-24 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-purpleAccent text-sm uppercase tracking-wider font-bold mb-3">Διασύνδεση Χρήστη</h2>
+          <p class="font-logo font-bold text-3xl sm:text-4xl text-whiteText">
+            Minimal αισθητική, μέγιστη ευκολία
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- Splash Screen -->
+          <div class="flex flex-col items-center gallery-reveal">
+            <div class="relative w-[270px] h-[550px] rounded-[44px] border-[8px] border-[#1f2937] bg-[#000] p-1 shadow-xl ring-1 ring-white/5 overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
+              <div class="absolute top-3 left-1/2 z-30 h-3.5 w-20 -translate-x-1/2 rounded-full bg-[#000]"></div>
+              <div class="pointer-events-none absolute inset-0 z-20 rounded-[38px] bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.06]"></div>
+              <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783757433/06_uwpehg.png" alt="Splash Screen" class="w-full h-full object-cover rounded-[38px]">
+            </div>
+            <p class="text-xs text-whiteText/50 mt-6 font-semibold uppercase tracking-wider">Splash Screen</p>
+          </div>
+          <!-- Ταινίες -->
+          <div class="flex flex-col items-center gallery-reveal" style="transition-delay:.12s">
+            <div class="relative w-[270px] h-[550px] rounded-[44px] border-[8px] border-[#1f2937] bg-[#000] p-1 shadow-xl ring-1 ring-white/5 overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
+              <div class="absolute top-3 left-1/2 z-30 h-3.5 w-20 -translate-x-1/2 rounded-full bg-[#000]"></div>
+              <div class="pointer-events-none absolute inset-0 z-20 rounded-[38px] bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.06]"></div>
+              <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783757434/05_jnugpb.png" alt="Ταινίες" class="w-full h-full object-cover rounded-[38px]">
+            </div>
+            <p class="text-xs text-whiteText/50 mt-6 font-semibold uppercase tracking-wider">Ταινίες</p>
+          </div>
+          <!-- Αίθουσες -->
+          <div class="flex flex-col items-center gallery-reveal" style="transition-delay:.24s">
+            <div class="relative w-[270px] h-[550px] rounded-[44px] border-[8px] border-[#1f2937] bg-[#000] p-1 shadow-xl ring-1 ring-white/5 overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
+              <div class="absolute top-3 left-1/2 z-30 h-3.5 w-20 -translate-x-1/2 rounded-full bg-[#000]"></div>
+              <div class="pointer-events-none absolute inset-0 z-20 rounded-[38px] bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.06]"></div>
+              <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783757433/03_kayfmf.png" alt="Αίθουσες" class="w-full h-full object-cover rounded-[38px]">
+            </div>
+            <p class="text-xs text-whiteText/50 mt-6 font-semibold uppercase tracking-wider">Αίθουσες</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Cinemas Tags Grid ────────────────────────────────── -->
+    <section id="cinemas" class="py-24 border-t border-white/5 bg-cardDark/10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5 text-left">
+            <h2 class="text-orangeAccent text-sm uppercase tracking-wider font-bold mb-3">Έξυπνα Φίλτρα Αιθουσών</h2>
+            <h3 class="font-logo font-bold text-3xl sm:text-4xl text-whiteText mb-6">
+              Βρείτε το κατάλληλο σινεμά για εσάς
+            </h3>
+            <p class="text-whiteText/70 text-base leading-relaxed mb-8 font-light">
+              Η σκοτεινή αίθουσα κατηγοριοποιεί κάθε σινεμά με βάση τις ανάγκες και τις επιθυμίες σας. Δημιουργήσαμε ειδικές ενδείξεις (tags) για να γνωρίζετε εκ των προτέρων τις ιδιαιτερότητες κάθε αίθουσας.
+            </p>
+            <div class="inline-flex items-center gap-3 p-4 rounded-2xl bg-cardDark border border-white/5">
+              <i data-lucide="info" class="w-5 h-5 text-primary flex-shrink-0"></i>
+              <span class="text-xs text-whiteText/75 leading-relaxed">
+                Τα tags εμφανίζονται απευθείας στο πάνω μέρος κάθε κινηματογράφου στην εφαρμογή.
+              </span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-6 rounded-2xl border border-primary/20 bg-primary/5 glowing-card">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-bold border border-primary text-primary mb-4 bg-primary/5">Θερινός</span>
+              <p class="text-sm text-whiteText/80 leading-relaxed font-light">Υπαίθριες προβολές κάτω από τον αθηναϊκό ουρανό.</p>
+            </div>
+            <div class="p-6 rounded-2xl border border-purpleAccent/20 bg-purpleAccent/5 glowing-card">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-bold border border-purpleAccent text-purpleAccent mb-4 bg-purpleAccent/5">Προσβάσιμος</span>
+              <p class="text-sm text-whiteText/80 leading-relaxed font-light">Κινηματογράφοι με υποδομές για ΑμεΑ και αμαξίδια.</p>
+            </div>
+            <div class="p-6 rounded-2xl border border-orangeAccent/20 bg-orangeAccent/5 glowing-card">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-bold border border-orangeAccent text-orangeAccent mb-4 bg-orangeAccent/5">Cinobo Partner</span>
+              <p class="text-sm text-whiteText/80 leading-relaxed font-light">Συνεργαζόμενοι κινηματογράφοι με προσφορές Cinobo Pass.</p>
+            </div>
+            <div class="p-6 rounded-2xl border border-pinkAccent/20 bg-pinkAccent/5 glowing-card">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-bold border border-pinkAccent text-pinkAccent mb-4 bg-pinkAccent/5">IMAX</span>
+              <p class="text-sm text-whiteText/80 leading-relaxed font-light">Αίθουσες κορυφαίας τεχνολογίας ήχου και εικόνας.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Genres / Categories ──────────────────────────────── -->
+    <section id="genres" class="py-24 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-yellowAccent text-sm uppercase tracking-wider font-bold mb-3">Κατηγοριοποίηση</h2>
+          <p class="font-logo font-bold text-3xl sm:text-4xl text-whiteText">
+            Ανακαλύψτε ταινίες ανά είδος
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <!-- Βιογραφική -->
+          <div class="group relative h-48 rounded-2xl overflow-hidden border border-white/5 bg-cardDark cursor-pointer transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(6,212,109,0.12)]">
+            <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783694376/%CE%92%CE%B9%CE%BF%CE%B3%CF%81%CE%B1%CF%86%CE%B9%CE%BA%CE%AE_buytlc.png" alt="Βιογραφική" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0D1321] via-[#0D1321]/50 to-transparent z-10"></div>
+            <div class="absolute bottom-4 left-4 right-4 z-20">
+              <span class="text-sm font-bold text-whiteText group-hover:text-primary transition-colors duration-300 drop-shadow-sm">Βιογραφική</span>
+            </div>
+          </div>
+          <!-- Γουέστερν -->
+          <div class="group relative h-48 rounded-2xl overflow-hidden border border-white/5 bg-cardDark cursor-pointer transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(6,212,109,0.12)]">
+            <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783694375/Property_1_western_ic_u27x3n.png" alt="Γουέστερν" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0D1321] via-[#0D1321]/50 to-transparent z-10"></div>
+            <div class="absolute bottom-4 left-4 right-4 z-20">
+              <span class="text-sm font-bold text-whiteText group-hover:text-primary transition-colors duration-300 drop-shadow-sm">Γουέστερν</span>
+            </div>
+          </div>
+          <!-- Τρόμου -->
+          <div class="group relative h-48 rounded-2xl overflow-hidden border border-white/5 bg-cardDark cursor-pointer transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(6,212,109,0.12)]">
+            <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783694376/tromou_ic_lby7vm.png" alt="Τρόμου" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0D1321] via-[#0D1321]/50 to-transparent z-10"></div>
+            <div class="absolute bottom-4 left-4 right-4 z-20">
+              <span class="text-sm font-bold text-whiteText group-hover:text-primary transition-colors duration-300 drop-shadow-sm">Τρόμου</span>
+            </div>
+          </div>
+          <!-- Φαντασίας -->
+          <div class="group relative h-48 rounded-2xl overflow-hidden border border-white/5 bg-cardDark cursor-pointer transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(6,212,109,0.12)]">
+            <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783694376/fantasia_ic_agqrbw.png" alt="Φαντασίας" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0D1321] via-[#0D1321]/50 to-transparent z-10"></div>
+            <div class="absolute bottom-4 left-4 right-4 z-20">
+              <span class="text-sm font-bold text-whiteText group-hover:text-primary transition-colors duration-300 drop-shadow-sm">Φαντασίας</span>
+            </div>
+          </div>
+          <!-- Κωμωδία -->
+          <div class="group relative h-48 rounded-2xl overflow-hidden border border-white/5 bg-cardDark cursor-pointer transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(6,212,109,0.12)]">
+            <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783694376/kwmwdia_ic_vdnvse.png" alt="Κωμωδία" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0D1321] via-[#0D1321]/50 to-transparent z-10"></div>
+            <div class="absolute bottom-4 left-4 right-4 z-20">
+              <span class="text-sm font-bold text-whiteText group-hover:text-primary transition-colors duration-300 drop-shadow-sm">Κωμωδία</span>
+            </div>
+          </div>
+          <!-- Κινούμενα Σχέδια -->
+          <div class="group relative h-48 rounded-2xl overflow-hidden border border-white/5 bg-cardDark cursor-pointer transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(6,212,109,0.12)]">
+            <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783694376/kinoumena_sxedia_ic_u4779l.png" alt="Κινούμενα Σχέδια" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0D1321] via-[#0D1321]/50 to-transparent z-10"></div>
+            <div class="absolute bottom-4 left-4 right-4 z-20">
+              <span class="text-sm font-bold text-whiteText group-hover:text-primary transition-colors duration-300 drop-shadow-sm">Κινούμενα Σχέδια</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Beta Signup ───────────────────────────────────────── -->
+    <section id="beta" class="py-24 border-t border-white/5 bg-cardDark/25">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purpleAccent/10 bg-purpleAccent/5 text-xs font-semibold text-purpleAccent mb-6">
+            <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+            <span>Android Beta Πρόγραμμα</span>
+          </div>
+          <h2 class="font-logo font-bold text-3xl sm:text-4xl text-whiteText mb-6">
+            Γίνε beta tester
+          </h2>
+          <p class="text-whiteText/80 text-base sm:text-lg leading-relaxed font-light">
+            Δοκίμασε πρώτος τις νέες λειτουργίες της σκοτεινή αίθουσα πριν από την επίσημη κυκλοφορία.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Card 1: Ενεργοποίησε την πρόσβαση -->
+          <div class="p-8 rounded-3xl bg-[#111A2E] border border-white/5 shadow-2xl relative overflow-hidden flex flex-col items-start text-left">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6">
+              <i data-lucide="key-round" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-semibold text-whiteText mb-3 font-logo">1. Ενεργοποίησε την πρόσβαση</h3>
+            <p class="text-whiteText/70 text-sm mb-8 leading-relaxed font-light">
+              Γίνε μέλος της ομάδας δοκιμών της Google.
+            </p>
+            <a href="JOIN_GROUP_URL" class="w-full h-12 mt-auto rounded-xl bg-primary hover:bg-primary/90 text-bgDark font-bold text-sm tracking-tight transition-all focus:outline-none focus:ring-2 focus:ring-primary flex items-center justify-center gap-2 cursor-pointer shadow-lg whitespace-nowrap">
+              <span class="leading-none">Ενεργοποίηση</span>
+            </a>
+          </div>
+
+          <!-- Card 2: Κατέβασε την εφαρμογή -->
+          <div class="p-8 rounded-3xl bg-[#111A2E] border border-white/5 shadow-2xl relative overflow-hidden flex flex-col items-start text-left">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-purpleAccent/5 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="w-12 h-12 rounded-2xl bg-purpleAccent/10 border border-purpleAccent/20 flex items-center justify-center text-purpleAccent mb-6">
+              <i data-lucide="download" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-semibold text-whiteText mb-3 font-logo">2. Κατέβασε την εφαρμογή</h3>
+            <p class="text-whiteText/70 text-sm mb-8 leading-relaxed font-light">
+              Η εγκατάσταση από το Google Play θα είναι διαθέσιμη μόλις ανοίξει η beta.
+            </p>
+            <div role="button" aria-disabled="true" tabindex="-1" class="w-full mt-auto h-12 rounded-xl bg-zinc-700/50 border border-zinc-500/30 text-zinc-400 font-bold text-sm tracking-tight flex items-center justify-center gap-2 cursor-not-allowed pointer-events-none select-none whitespace-nowrap">
+              <span class="leading-none">Google Play Beta</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-whiteText/50 mt-10 max-w-xl mx-auto leading-relaxed">
+          Πρώτα ενεργοποίησε την πρόσβαση και στη συνέχεια άνοιξε το Google Play. Διαφορετικά η beta δεν θα είναι διαθέσιμη.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ──────────────────────────────────────────────── -->
+    <section id="faq" class="py-24 border-t border-white/5 bg-cardDark/10">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-purpleAccent text-sm uppercase tracking-wider font-bold mb-3">Υποστήριξη</h2>
+          <p class="font-logo font-bold text-3xl sm:text-4xl text-whiteText">Συχνές Ερωτήσεις</p>
+        </div>
+
+        <div class="space-y-4 w-full">
+          <!-- FAQ 1 -->
+          <div class="border border-white/5 rounded-2xl bg-cardDark overflow-hidden transition-all duration-300">
+            <button data-accordion="faq-1" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left font-medium text-whiteText hover:text-primary transition-colors focus:outline-none">
+              <span class="text-base sm:text-lg pr-4">Ποιες περιοχές και κινηματογράφους καλύπτει η εφαρμογή;</span>
+              <span class="flex-shrink-0 text-primary transition-transform duration-300" id="icon-faq-1"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
+            </button>
+            <div id="ans-faq-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+              <div class="px-5 pb-5 pt-0 text-sm sm:text-base text-whiteText/70 leading-relaxed border-t border-white/5">
+                Η <strong>σκοτεινή αίθουσα</strong> καλύπτει το σύνολο των κινηματογράφων της Αττικής. Από τα μεγάλα multiplex (Village, Options, Cinemax) μέχρι τους ιστορικούς μονούς κινηματογράφους του κέντρου και τα αγαπημένα συνοικιακά σινεμά της Αθήνας.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="border border-white/5 rounded-2xl bg-cardDark overflow-hidden transition-all duration-300">
+            <button data-accordion="faq-2" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left font-medium text-whiteText hover:text-primary transition-colors focus:outline-none">
+              <span class="text-base sm:text-lg pr-4">Περιλαμβάνονται τα θερινά σινεμά στο πρόγραμμα;</span>
+              <span class="flex-shrink-0 text-primary transition-transform duration-300" id="icon-faq-2"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
+            </button>
+            <div id="ans-faq-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+              <div class="px-5 pb-5 pt-0 text-sm sm:text-base text-whiteText/70 leading-relaxed border-t border-white/5">
+                Φυσικά! Τα θερινά σινεμά αποτελούν αναπόσπαστο κομμάτι της αθηναϊκής κουλτούρας. Η εφαρμογή ενημερώνεται καθημερινά με όλες τις θερινές προβολές από τον Μάιο έως και τον Οκτώβριο, συνοδευόμενη από ειδικό tag <strong>Θερινός</strong> για εύκολο φιλτράρισμα.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="border border-white/5 rounded-2xl bg-cardDark overflow-hidden transition-all duration-300">
+            <button data-accordion="faq-3" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left font-medium text-whiteText hover:text-primary transition-colors focus:outline-none">
+              <span class="text-base sm:text-lg pr-4">Από πού προέρχονται τα δεδομένα των προβολών;</span>
+              <span class="flex-shrink-0 text-primary transition-transform duration-300" id="icon-faq-3"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
+            </button>
+            <div id="ans-faq-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+              <div class="px-5 pb-5 pt-0 text-sm sm:text-base text-whiteText/70 leading-relaxed border-t border-white/5">
+                Τα δεδομένα συλλέγονται απευθείας από τις επίσημες ιστοσελίδες των κινηματογράφων και των εταιρειών διανομής. Η βάση δεδομένων μας ανανεώνεται αυτόματα κάθε Πέμπτη πρωί, όταν και αλλάζουν οι κινηματογραφικές εβδομάδες στην Ελλάδα.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="border border-white/5 rounded-2xl bg-cardDark overflow-hidden transition-all duration-300">
+            <button data-accordion="faq-4" aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left font-medium text-whiteText hover:text-primary transition-colors focus:outline-none">
+              <span class="text-base sm:text-lg pr-4">Είναι η εφαρμογή δωρεάν; Περιέχει διαφημίσεις;</span>
+              <span class="flex-shrink-0 text-primary transition-transform duration-300" id="icon-faq-4"><i data-lucide="chevron-down" class="w-5 h-5"></i></span>
+            </button>
+            <div id="ans-faq-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+              <div class="px-5 pb-5 pt-0 text-sm sm:text-base text-whiteText/70 leading-relaxed border-t border-white/5">
+                Η εφαρμογή είναι <strong>100% δωρεάν</strong>, χωρίς συνδρομές και χωρίς ενοχλητικές διαφημίσεις. Δημιουργήθηκε από σινεφίλ για σινεφίλ με μοναδικό σκοπό την υποστήριξη και την εύκολη πρόσβαση στις αίθουσες της Αθήνας.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-12 bg-bgDark">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="https://res.cloudinary.com/mq7xwmak/image/upload/v1783697209/app_title_logo_white_ic_p8ubfq.png" alt="σκοτεινή αίθουσα" loading="lazy" class="h-[18px] w-auto select-none">
+      </div>
+
+      <div class="flex flex-col items-center md:items-end gap-2">
+        <a href="privacy.html" class="text-xs text-whiteText/50 hover:text-primary transition-colors underline underline-offset-2 decoration-white/20 hover:decoration-primary/50">
+          Πολιτική Απορρήτου / Privacy Policy
+        </a>
+        <a href="beta.html" class="text-xs text-whiteText/50 hover:text-primary transition-colors underline underline-offset-2 decoration-white/20 hover:decoration-primary/50">
+          Beta
+        </a>
+        <a href="mailto:elenivoreopoulou@gmail.com" class="text-xs text-whiteText/50 hover:text-primary transition-colors underline underline-offset-2 decoration-white/20 hover:decoration-primary/50">
+          Contact
+        </a>
+        <p class="text-xs text-whiteText/40 text-center md:text-right font-light">
+          © <span id="year"></span> σκοτεινή αίθουσα.<br>
+          App UI/UX & Website Design: Thanos Thiriou<br>
+          This product uses the TMDB API but is not endorsed or certified by TMDB.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/router.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,6 +1,5 @@
 /* ============================================================
    σκοτεινή αίθουσα — Shared site styles
-   Extracted verbatim from the original inline <style> block.
    ============================================================ */
 
 /* Base Overrides */
@@ -24,14 +23,20 @@ body {
   background-image: radial-gradient(rgba(247,245,241,0.03) 1px, transparent 1px);
   background-size: 32px 32px;
 }
-.projector-glow {
-  background: radial-gradient(circle, rgba(6,212,109,0.18) 0%, rgba(216,180,254,0.05) 50%, transparent 100%);
-}
-.ambient-light-purple {
-  background: radial-gradient(circle, rgba(216,180,254,0.12) 0%, transparent 70%);
-}
-.ambient-light-orange {
-  background: radial-gradient(circle, rgba(255,123,47,0.08) 0%, transparent 70%);
+
+/* Single unified hero glow.
+   Uses a radial-gradient that fades all the way to true transparency,
+   so there is no hard rectangular edge left behind by a blurred solid color —
+   unlike the old blur()-on-a-div approach, this can never reveal its own bounding box. */
+.hero-glow {
+  background: radial-gradient(
+    circle at center,
+    rgba(6, 212, 109, 0.09) 0%,
+    rgba(6, 212, 109, 0.04) 35%,
+    rgba(13, 19, 33, 0) 65%
+  );
+  filter: blur(60px);
+  border-radius: 9999px;
 }
 
 /* Film Grain Overlay */

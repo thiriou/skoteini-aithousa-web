@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /privacy.html
 
-Sitemap: https://skotiniaithousa.gr/sitemap.xml
+Sitemap: https://skoteiniaithousa.gr/sitemap.xml

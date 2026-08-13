@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Πολιτική Απορρήτου / Privacy Policy — σκοτεινή αίθουσα</title>
   <meta name="description" content="Πολιτική Απορρήτου της εφαρμογής σκοτεινή αίθουσα.">
-  <link rel="canonical" href="https://skotiniaithousa.gr/privacy.html">
+  <link rel="canonical" href="https://skoteiniaithousa.gr/privacy.html">
   <meta name="robots" content="noindex, follow">
 
   <!-- Favicon / Manifest -->

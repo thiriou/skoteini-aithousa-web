@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Τι παίζει σήμερα στα σινεμά της Αθήνας · σκοτεινή αίθουσα</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <p class="site">
+    <a class="logo-link" href="../movies/index.html"><img class="logo" src="https://skoteiniaithousa.gr/assets/logo.png" alt="σκοτεινή αίθουσα"></a>
+    <a class="nav" href="../movies/index.html">Όλες οι ταινίες ▸</a>
+    <a class="nav is-active" href="index.html">Σήμερα ▸</a>
+    <a class="nav" href="../nees-tainies/index.html">Νέες ▸</a>
+    <a class="nav" href="../therina/index.html">Θερινά ▸</a>
+    <a class="nav" href="../cinemas/index.html">Αίθουσες ▸</a>
+    <a class="nav" href="../prosechos/index.html">Προσεχώς ▸</a>
+    <a class="nav" href="../nyxtes-premieras/index.html">Φεστιβάλ ▸</a>
+    <a class="lang" hreflang="en" href="https://skoteiniaithousa.gr/simera?lang=en">EN</a>
+  </p>
+
+  <h1><span class="accent">Τι παίζει σήμερα</span> στα σινεμά της Αθήνας</h1>
+  <p class="date">Τρίτη 22 Σεπτεμβρίου</p>
+
+  <div class="search-bar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="search" id="search" placeholder="Αναζήτηση ταινιών" autocomplete="off">
+  </div>
+
+  <p class="result-meta" id="result-meta"></p>
+  <div class="empty-state" id="empty-state">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <p>Καμία ταινία δεν βρέθηκε.</p>
+  </div>
+
+  <div class="films" id="films">
+
+    <article class="film" data-title="Resident Evil">
+      <a href="https://skoteiniaithousa.gr/movie/f-resident-evil"><img src="https://image.tmdb.org/t/p/w500/i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg" alt="Αφίσα: Resident Evil"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-resident-evil">Resident Evil</a> <span class="year">(2026)</span></h2>
+        <p class="meta">52 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/aello-cinemax">Αελλώ Cinemax</a><span class="at-times">23:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/nana-cinemax">Νανά Cinemax</a><span class="at-times">22:45</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/athinaion-experience">Athinaion Experience</a><span class="at-times">22:30</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/cine-floisvos">Cine Φλοίσβος</a><span class="at-times"><span class="open-air">22:00 (θερινός)</span></span></div>
+        </div>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-resident-evil">+19 ακόμα ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Παραλληλες Ιστοριες">
+      <a href="https://skoteiniaithousa.gr/movie/f-paralliles-istories"><img src="https://image.tmdb.org/t/p/w500/kYuMXWSi8gmR9kmVPLlTAzXx2iy.jpg" alt="Αφίσα: Παραλληλες Ιστοριες"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-paralliles-istories">Παραλληλες Ιστοριες</a> <span class="year">(2026)</span></h2>
+        <p class="meta">24 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/aello-cinemax">Αελλώ Cinemax</a><span class="at-times">20:45</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/korali-cinemax">Κοράλι Cinemax</a><span class="at-times"><span class="open-air">19:30 (θερινός)</span></span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/nana-cinemax">Νανά Cinemax</a><span class="at-times">21:15</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/athinaion-experience">Athinaion Experience</a><span class="at-times">19:00</span></div>
+        </div>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-paralliles-istories">+16 ακόμα ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Η Οδύσσεια">
+      <a href="https://skoteiniaithousa.gr/movie/f-odysseia"><img src="https://image.tmdb.org/t/p/w500/3KeSo38sAuIGBKYJx2D8iQaqRb0.jpg" alt="Αφίσα: Η Οδύσσεια"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-odysseia">Η Οδύσσεια</a> <span class="year">(2026)</span></h2>
+        <p class="meta">22 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/nana-cinemax">Νανά Cinemax</a><span class="at-times">20:30</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/athinaion-experience">Athinaion Experience</a><span class="at-times">18:00, 21:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/amaryllis-garden">Αμαρυλλίς Garden</a><span class="at-times">20:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/village-renti">Village Renti</a><span class="at-times">19:00, 21:10</span></div>
+        </div>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-odysseia">+8 ακόμα ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Πατρίδα">
+      <a href="https://skoteiniaithousa.gr/movie/f-patrida"><img src="https://image.tmdb.org/t/p/w500/7ZOKtaQfTSkueIChkSzBnXkI0NX.jpg" alt="Αφίσα: Πατρίδα"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-patrida">Πατρίδα</a> <span class="year">(2026)</span></h2>
+        <p class="meta">18 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/dexameni">Δεξαμενή</a><span class="at-times"><span class="open-air">22:10 (θερινός)</span></span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/tainiothiki-tis-ellados">Ταινιοθήκη της Ελλάδος</a><span class="at-times"><span class="open-air">20:00 (θερινός)</span></span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/sine-pallini">Σινέ Παλλήνη</a><span class="at-times"><span class="open-air">19:45 (θερινός)</span></span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/mikrokosmos">Μικρόκοσμος</a><span class="at-times">18:00</span></div>
+        </div>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-patrida">+12 ακόμα ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Spider-Man: Καινούργια Μέρα">
+      <a href="https://skoteiniaithousa.gr/movie/f-spider-man-kainourgia-mera"><img src="https://image.tmdb.org/t/p/w500/8CDVQWiXC8wH9aNwUJHvYCjwetw.jpg" alt="Αφίσα: Spider-Man: Καινούργια Μέρα"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-spider-man-kainourgia-mera">Spider-Man: Καινούργια Μέρα</a> <span class="year">(2026)</span></h2>
+        <p class="meta">17 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/aello-cinemax">Αελλώ Cinemax</a><span class="at-times">21:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/nana-cinemax">Νανά Cinemax</a><span class="at-times">21:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/athinaion-experience">Athinaion Experience</a><span class="at-times">21:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/village-renti">Village Renti</a><span class="at-times">18:20, 21:30, 22:20</span></div>
+        </div>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-spider-man-kainourgia-mera">+3 ακόμα ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Κωδικός Τεχεράνη">
+      <a href="https://skoteiniaithousa.gr/movie/f-the-fix"><img src="https://image.tmdb.org/t/p/w500/yopXjun3ICFfJci2ukcEzceZjUs.jpg" alt="Αφίσα: Κωδικός Τεχεράνη"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-the-fix">Κωδικός Τεχεράνη</a> <span class="year">(2026)</span></h2>
+        <p class="meta">17 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/aello-cinemax">Αελλώ Cinemax</a><span class="at-times">20:15</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/nana-cinemax">Νανά Cinemax</a><span class="at-times">22:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/village-renti">Village Renti</a><span class="at-times">20:00, 23:00, 23:15</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/village-pagkrati">Village Παγκράτι</a><span class="at-times">22:00</span></div>
+        </div>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-the-fix">+6 ακόμα ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Τρυφερό Κτήνος">
+      <a href="https://skoteiniaithousa.gr/movie/f-gentle-monster"><img src="https://image.tmdb.org/t/p/w500/q78GSgaUgVEfZV48J9qYY6OJANQ.jpg" alt="Αφίσα: Τρυφερό Κτήνος"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-gentle-monster">Τρυφερό Κτήνος</a> <span class="year">(2026)</span></h2>
+        <p class="meta">17 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/aello-cinemax">Αελλώ Cinemax</a><span class="at-times">22:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/nana-cinemax">Νανά Cinemax</a><span class="at-times">20:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/athinaion-experience">Athinaion Experience</a><span class="at-times">17:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/dexameni">Δεξαμενή</a><span class="at-times"><span class="open-air">20:00 (θερινός)</span></span></div>
+        </div>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-gentle-monster">+9 ακόμα ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Φάκελος 137">
+      <a href="https://skoteiniaithousa.gr/movie/f-fakelos-137"><img src="https://image.tmdb.org/t/p/w500/5zboTcx76KE8menPFYTeFm7dxhU.jpg" alt="Αφίσα: Φάκελος 137"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-fakelos-137">Φάκελος 137</a> <span class="year">(2025)</span></h2>
+        <p class="meta">15 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/aello-cinemax">Αελλώ Cinemax</a><span class="at-times">21:15</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/korali-cinemax">Κοράλι Cinemax</a><span class="at-times"><span class="open-air">22:00 (θερινός)</span></span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/nana-cinemax">Νανά Cinemax</a><span class="at-times">20:15</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/marilena">Μαριλένα</a><span class="at-times"><span class="open-air">20:00 (θερινός)</span></span></div>
+        </div>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-fakelos-137">+9 ακόμα ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Minions & Τέρατα">
+      <a href="https://skoteiniaithousa.gr/movie/f-minions-terata"><img src="https://image.tmdb.org/t/p/w500/zyVkAF2ndPODAUGcaBKx5zBjZ1B.jpg" alt="Αφίσα: Minions & Τέρατα"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-minions-terata">Minions &amp; Τέρατα</a> <span class="year">(2026)</span></h2>
+        <p class="meta">14 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/village-renti">Village Renti</a><span class="at-times">17:00, 17:30, 18:30, 19:10, 19:45, 20:45</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/village-15-the-mall">Village 15 Cinemas @ The Mall</a><span class="at-times">17:30, 18:30</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/village-metro-mall">Village Metro Mall</a><span class="at-times">17:10, 17:40, 19:15</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/options-escape-center">Options@Escape Center</a><span class="at-times">17:00, 18:00</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="film" data-title="Φιόρδ">
+      <a href="https://skoteiniaithousa.gr/movie/f-fiord"><img src="https://image.tmdb.org/t/p/w500/mQQOWnCzhUgXPNdMGbh5i76iavJ.jpg" alt="Αφίσα: Φιόρδ"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-fiord">Φιόρδ</a> <span class="year">(2026)</span></h2>
+        <p class="meta">14 προβολές</p>
+        <div class="at-list">
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/athinaion-experience">Athinaion Experience</a><span class="at-times">21:30</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/village-pagkrati">Village Παγκράτι</a><span class="at-times">18:00</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/village-15-the-mall">Village 15 Cinemas @ The Mall</a><span class="at-times">18:15</span></div>
+          <div class="at"><a class="at-name" href="https://skoteiniaithousa.gr/cinema/sine-peran-dim">Σινέ Πέραν (Δημ. Κιν/φος)</a><span class="at-times"><span class="open-air">20:10 (θερινός)</span></span></div>
+        </div>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-fiord">+8 ακόμα ▸</a>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="cta">
+    <p>Ώρες προβολών, αίθουσες κοντά σου, θερινά σινεμά και ειδοποιήσεις — στην εφαρμογή.</p>
+    <a class="cta-button" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr">Κατέβασε την εφαρμογή</a>
+    <a class="cta-badge" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr"><img src="https://play.google.com/intl/el/badges/static/images/badges/el_badge_web_generic.png" alt="Διαθέσιμο στο Google Play" loading="lazy"></a>
+  </section>
+</main>
+
+<div class="app-modal-backdrop" id="app-modal-backdrop">
+  <div class="app-modal" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+    <button class="app-modal-close" id="app-modal-close" aria-label="Κλείσιμο">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img src="icon.png" alt="" class="app-modal-icon">
+    <h3 id="app-modal-title">Κατέβασε τη σκοτεινή αίθουσα</h3>
+    <p>Ώρες προβολών, όλες οι αίθουσες και ό,τι χρειάζεσαι για να ξέρεις τι παίζεται στην Αθήνα — δωρεάν στο Google Play.</p>
+    <a class="app-modal-cta" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr">Λήψη από το Google Play</a>
+    <button class="app-modal-dismiss" id="app-modal-dismiss">Όχι τώρα</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var search = document.getElementById('search');
+  var films = document.querySelectorAll('.film');
+  var emptyState = document.getElementById('empty-state');
+  var resultMeta = document.getElementById('result-meta');
+
+  function norm(str) { return (str || '').toLowerCase(); }
+
+  function applyFilter() {
+    var q = norm(search.value.trim());
+    var visible = 0;
+    films.forEach(function (f) {
+      var show = !q || norm(f.getAttribute('data-title')).indexOf(q) > -1;
+      f.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    emptyState.style.display = visible === 0 ? 'flex' : 'none';
+    resultMeta.textContent = q ? (visible + (visible === 1 ? ' αποτέλεσμα' : ' αποτελέσματα')) : '';
+  }
+
+  search.addEventListener('input', applyFilter);
+  applyFilter();
+
+  var backdrop = document.getElementById('app-modal-backdrop');
+  var closeBtn = document.getElementById('app-modal-close');
+  var dismissBtn = document.getElementById('app-modal-dismiss');
+  function openModal() { backdrop.classList.add('is-open'); }
+  function closeModal() { backdrop.classList.remove('is-open'); }
+  setTimeout(openModal, 1200);
+  closeBtn.addEventListener('click', closeModal);
+  dismissBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeModal(); });
+})();
+</script>
+
+</body>
+</html>

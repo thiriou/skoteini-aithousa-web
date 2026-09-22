@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Τι παίζει τώρα στα σινεμά της Αθήνας · σκοτεινή αίθουσα</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <p class="site">
+    <a class="logo-link" href="index.html"><img class="logo" src="https://skoteiniaithousa.gr/assets/logo.png" alt="σκοτεινή αίθουσα"></a>
+    <a class="nav is-active" href="index.html">Όλες οι ταινίες ▸</a>
+    <a class="nav" href="../simera/index.html">Σήμερα ▸</a>
+    <a class="nav" href="../nees-tainies/index.html">Νέες ▸</a>
+    <a class="nav" href="../therina/index.html">Θερινά ▸</a>
+    <a class="nav" href="../cinemas/index.html">Αίθουσες ▸</a>
+    <a class="nav" href="../prosechos/index.html">Προσεχώς ▸</a>
+    <a class="nav" href="../nyxtes-premieras/index.html">Φεστιβάλ ▸</a>
+    <button class="nav-watchlist" id="nav-watchlist" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      Η λίστα μου <span class="count" id="watchlist-count"></span>
+    </button>
+    <a class="lang" hreflang="en" href="https://skoteiniaithousa.gr/movies?lang=en">EN</a>
+  </p>
+  <h1><span class="accent">Τι παίζει τώρα</span> στα σινεμά της Αθήνας</h1>
+
+  <nav class="genres" aria-label="Εξερεύνηση ανά είδος">
+    <span class="genres-label">Εξερεύνηση ανά είδος</span>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/astynomiki">Αστυνομική</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/drama">Δράμα</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/drasi">Δράση</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/epistimonikis-fantasias">Επ. Φαντασίας</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/thriller">Θρίλερ</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/istoriki">Ιστορική</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/animation">Κινούμενα Σχέδια</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/komodia">Κωμωδία</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/mousiki">Μουσική</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/mystiriou">Μυστηρίου</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/documentary">Ντοκυμαντέρ</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/oikogeneiaki">Οικογενειακή</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/peripeteia">Περιπέτεια</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/romantiki">Ρομαντική</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/tromou">Τρόμου</a>
+    <a class="chip" href="https://skoteiniaithousa.gr/movies/fantasias">Φαντασίας</a>
+  </nav>
+
+  <div class="toolbar">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="search" placeholder="Αναζήτηση ταινιών" autocomplete="off">
+    </div>
+  </div>
+
+  <p class="result-meta" id="result-meta"></p>
+  <div class="empty-state" id="empty-state">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <p>Καμία ταινία δεν βρέθηκε. Δοκίμασε άλλους όρους αναζήτησης.</p>
+  </div>
+
+  <div class="movie-section" data-section="now">
+    <p class="eyebrow">Live πρόγραμμα</p>
+    <h2 class="section-title">Τώρα στα σινεμά</h2>
+    <div class="grid">
+
+      <div class="card" data-title="Mauthausen" data-id="/movie/f-mauthausen">
+        <button class="bookmark-btn" data-id="/movie/f-mauthausen" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="../movie/index.html"><img src="https://image.tmdb.org/t/p/w500/qa4m3cPrUxBgIu4WVVIzqirDJwX.jpg" alt="Αφίσα: Mauthausen" loading="lazy"><span class="card-title">Mauthausen <span class="year">(2025)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Nouvelle Vague" data-id="/movie/f-nouvelle-vague">
+        <button class="bookmark-btn" data-id="/movie/f-nouvelle-vague" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-nouvelle-vague"><img src="https://image.tmdb.org/t/p/w500/sE5sK4ZVxsMOeGZE5ZL8Y54XKNU.jpg" alt="Αφίσα: Nouvelle Vague" loading="lazy"><span class="card-title">Nouvelle Vague <span class="year">(2025)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Obsesión" data-id="/movie/f-obsesion">
+        <button class="bookmark-btn" data-id="/movie/f-obsesion" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-obsesion"><img src="https://image.tmdb.org/t/p/w500/oikwahsAzP3av04rAnkcqGsKPOG.jpg" alt="Αφίσα: Obsesión" loading="lazy"><span class="card-title">Obsesión <span class="year">(2018)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Spider-Man: Καινούργια Μέρα" data-id="/movie/f-spider-man">
+        <button class="bookmark-btn" data-id="/movie/f-spider-man" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-spider-man"><img src="https://image.tmdb.org/t/p/w500/uS3ogx2b96Na2fxkes8dvx8XJ2T.jpg" alt="Αφίσα: Spider-Man: Καινούργια Μέρα" loading="lazy"><span class="card-title">Spider-Man: Καινούργια Μέρα <span class="year">(2026)</span></span></a>
+      </div>
+
+      <div class="card" data-title="The Drama" data-id="/movie/f-the-drama">
+        <button class="bookmark-btn" data-id="/movie/f-the-drama" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-the-drama"><img src="https://image.tmdb.org/t/p/w500/nTz9X7MHGQNDbg37Dsd4rEgrju5.jpg" alt="Αφίσα: The Drama" loading="lazy"><span class="card-title">The Drama <span class="year">(2026)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Tuner" data-id="/movie/f-tuner">
+        <button class="bookmark-btn" data-id="/movie/f-tuner" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-tuner"><img src="https://image.tmdb.org/t/p/w500/4vH22zNusFvPEhidKmM04i3HgKZ.jpg" alt="Αφίσα: Tuner" loading="lazy"><span class="card-title">Tuner <span class="year">(2026)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Ένας Ποιητής" data-id="/movie/f-enas-poiitis">
+        <button class="bookmark-btn" data-id="/movie/f-enas-poiitis" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-enas-poiitis"><img src="https://image.tmdb.org/t/p/w500/poxduIpWgvAmHzJ6M7wbf49ZvaF.jpg" alt="Αφίσα: Ένας Ποιητής" loading="lazy"><span class="card-title">Ένας Ποιητής <span class="year">(2025)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Όλες οι Κυριακές" data-id="/movie/f-oles-oi-kyriakes">
+        <button class="bookmark-btn" data-id="/movie/f-oles-oi-kyriakes" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-oles-oi-kyriakes"><img src="https://image.tmdb.org/t/p/w500/w7xqX1un9L1K6Ks5L3GWsvcuT4Q.jpg" alt="Αφίσα: Όλες οι Κυριακές" loading="lazy"><span class="card-title">Όλες οι Κυριακές <span class="year">(2025)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Όσα ξέρει η Μαριέλ" data-id="/movie/f-osa-xerei-i-mariel">
+        <button class="bookmark-btn" data-id="/movie/f-osa-xerei-i-mariel" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-osa-xerei-i-mariel"><img src="https://image.tmdb.org/t/p/w500/cPNuWPeHYkG0CdDFrF9M4SpOF79.jpg" alt="Αφίσα: Όσα ξέρει η Μαριέλ" loading="lazy"><span class="card-title">Όσα ξέρει η Μαριέλ <span class="year">(2025)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Αμελί" data-id="/movie/f-amelie">
+        <button class="bookmark-btn" data-id="/movie/f-amelie" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-amelie"><img src="https://image.tmdb.org/t/p/w500/3z5koCD36CIrRhCDYJeuuOPNszn.jpg" alt="Αφίσα: Αμελί" loading="lazy"><span class="card-title">Αμελί <span class="year">(2001)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Αρκουδότρυπα" data-id="/movie/f-arkoudotrypa">
+        <button class="bookmark-btn" data-id="/movie/f-arkoudotrypa" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-arkoudotrypa"><img src="https://image.tmdb.org/t/p/w500/lmaNTgMFtdMSs8fOXlo64xrgkIO.jpg" alt="Αφίσα: Αρκουδότρυπα" loading="lazy"><span class="card-title">Αρκουδότρυπα <span class="year">(2026)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Βαϊάνα" data-id="/movie/f-baiana">
+        <button class="bookmark-btn" data-id="/movie/f-baiana" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-baiana"><img src="https://image.tmdb.org/t/p/w500/rMU0ncONSsya7jGaLMPeead4sc3.jpg" alt="Αφίσα: Βαϊάνα" loading="lazy"><span class="card-title">Βαϊάνα <span class="year">(2026)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Βουγονία" data-id="/movie/f-bugonia">
+        <button class="bookmark-btn" data-id="/movie/f-bugonia" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-bugonia"><img src="https://image.tmdb.org/t/p/w500/przO98VBZoUKGlP2SYxYb743bwe.jpg" alt="Αφίσα: Βουγονία" loading="lazy"><span class="card-title">Βουγονία <span class="year">(2025)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Δυστυχώς Βρίζω" data-id="/movie/f-dystyxos-vrizo">
+        <button class="bookmark-btn" data-id="/movie/f-dystyxos-vrizo" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-dystyxos-vrizo"><img src="https://image.tmdb.org/t/p/w500/sUDNj9RWDuNaK4eMpTJyVDxPOuW.jpg" alt="Αφίσα: Δυστυχώς Βρίζω" loading="lazy"><span class="card-title">Δυστυχώς Βρίζω <span class="year">(2025)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Εμμονή" data-id="/movie/f-emmoni">
+        <button class="bookmark-btn" data-id="/movie/f-emmoni" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-emmoni"><img src="https://image.tmdb.org/t/p/w500/fH0KdP7T3du0eCWKfMgKxDwziNv.jpg" alt="Αφίσα: Εμμονή" loading="lazy"><span class="card-title">Εμμονή <span class="year">(2026)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Επτά Ψυχοπαθείς" data-id="/movie/f-epta-psyxopatheis">
+        <button class="bookmark-btn" data-id="/movie/f-epta-psyxopatheis" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-epta-psyxopatheis"><img src="https://image.tmdb.org/t/p/w500/3o3YC9c5YTdRxKyq6dYAbOAthvb.jpg" alt="Αφίσα: Επτά Ψυχοπαθείς" loading="lazy"><span class="card-title">Επτά Ψυχοπαθείς <span class="year">(2012)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Η Δική της Κόλαση" data-id="/movie/f-i-diki-tis-kolasi">
+        <button class="bookmark-btn" data-id="/movie/f-i-diki-tis-kolasi" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-i-diki-tis-kolasi"><img src="https://image.tmdb.org/t/p/w500/iYYDFhoeH8n6mA39SYS9YZfANZR.jpg" alt="Αφίσα: Η Δική της Κόλαση" loading="lazy"><span class="card-title">Η Δική της Κόλαση <span class="year">(2026)</span></span></a>
+      </div>
+
+      <div class="card" data-title="Η Εξαφάνιση" data-id="/movie/f-i-exafanisi">
+        <button class="bookmark-btn" data-id="/movie/f-i-exafanisi" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-i-exafanisi"><img src="https://image.tmdb.org/t/p/w500/i7KC2iR199mR5GI6HfOGJiCaHjm.jpg" alt="Αφίσα: Η Εξαφάνιση" loading="lazy"><span class="card-title">Η Εξαφάνιση <span class="year">(1971)</span></span></a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="movie-section" data-section="soon">
+    <p class="eyebrow">Ανοίγουν σύντομα</p>
+    <h2 class="section-title">Προσεχώς</h2>
+    <div class="grid">
+
+      <div class="card" data-title="Bazaar (Murder in the Building)" data-id="/movie/f-bazaar">
+        <button class="bookmark-btn" data-id="/movie/f-bazaar" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-bazaar"><img src="https://image.tmdb.org/t/p/w500/5FHAlQPHFyJEIN1UOxsADog1KUy.jpg" alt="Αφίσα: Bazaar (Murder in the Building)" loading="lazy"><span class="card-title">Bazaar (Murder in the Building) <span class="year">(2026)</span></span></a>
+        <span class="note">από 30/07</span>
+      </div>
+
+      <div class="card" data-title="A Pale View of Hills" data-id="/movie/f-a-pale-view-of-hills">
+        <button class="bookmark-btn" data-id="/movie/f-a-pale-view-of-hills" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-a-pale-view-of-hills"><img src="https://image.tmdb.org/t/p/w500/eYlGoz58v1GIx8vlqcmQBhx4mxG.jpg" alt="Αφίσα: A Pale View of Hills" loading="lazy"><span class="card-title">A Pale View of Hills <span class="year">(2025)</span></span></a>
+        <span class="note">από 30/07</span>
+      </div>
+
+      <div class="card" data-title="Ψηλά Τακούνια" data-id="/movie/f-psila-takounia">
+        <button class="bookmark-btn" data-id="/movie/f-psila-takounia" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-psila-takounia"><img src="https://image.tmdb.org/t/p/w500/gRL9CvpBUXjOL5CEgKEKGsB9a0P.jpg" alt="Αφίσα: Ψηλά Τακούνια" loading="lazy"><span class="card-title">Ψηλά Τακούνια <span class="year">(1991)</span></span></a>
+        <span class="note">από 30/07</span>
+      </div>
+
+      <div class="card" data-title="Η Παρακολούθηση" data-id="/movie/f-following">
+        <button class="bookmark-btn" data-id="/movie/f-following" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-following"><img src="https://image.tmdb.org/t/p/w500/3bX6VVSMf0dvzk5pMT4ALG5A92d.jpg" alt="Αφίσα: Η Παρακολούθηση" loading="lazy"><span class="card-title">Η Παρακολούθηση <span class="year">(1999)</span></span></a>
+        <span class="note">από 30/07</span>
+      </div>
+
+      <div class="card" data-title="Conversation Piece" data-id="/movie/f-conversation-piece">
+        <button class="bookmark-btn" data-id="/movie/f-conversation-piece" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-conversation-piece"><img src="https://image.tmdb.org/t/p/w500/aKTailFr6wWkhS2PWKVFWm29ESK.jpg" alt="Αφίσα: Conversation Piece" loading="lazy"><span class="card-title">Conversation Piece <span class="year">(1974)</span></span></a>
+        <span class="note">από 30/07</span>
+      </div>
+
+      <div class="card" data-title="Motor City" data-id="/movie/f-motor-city">
+        <button class="bookmark-btn" data-id="/movie/f-motor-city" aria-pressed="false" aria-label="Αποθήκευση"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+        <a class="card-link" href="https://skoteiniaithousa.gr/movie/f-motor-city"><img src="https://image.tmdb.org/t/p/w500/lGovcOtxugJPhfJjFKud9EbWtOA.jpg" alt="Αφίσα: Motor City" loading="lazy"><span class="card-title">Motor City <span class="year">(2026)</span></span></a>
+        <span class="note">από 06/08</span>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="cta">
+    <p>Ώρες προβολών, αίθουσες κοντά σου, θερινά σινεμά και ειδοποιήσεις — στην εφαρμογή.</p>
+    <a class="cta-button" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr">Κατέβασε την εφαρμογή</a>
+    <a class="cta-badge" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr"><img src="https://play.google.com/intl/el/badges/static/images/badges/el_badge_web_generic.png" alt="Διαθέσιμο στο Google Play" loading="lazy"></a>
+  </section>
+</main>
+
+<div class="app-modal-backdrop" id="app-modal-backdrop">
+  <div class="app-modal" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+    <button class="app-modal-close" id="app-modal-close" aria-label="Κλείσιμο">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img src="icon.png" alt="" class="app-modal-icon">
+    <h3 id="app-modal-title">Κατέβασε τη σκοτεινή αίθουσα</h3>
+    <p>Ώρες προβολών, όλες οι αίθουσες και ό,τι χρειάζεσαι για να ξέρεις τι παίζεται στην Αθήνα — δωρεάν στο Google Play.</p>
+    <a class="app-modal-cta" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr">Λήψη από το Google Play</a>
+    <button class="app-modal-dismiss" id="app-modal-dismiss">Όχι τώρα</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var WATCH_KEY = 'sa-watchlist';
+
+  function getWatchlist() {
+    try { return JSON.parse(localStorage.getItem(WATCH_KEY) || '[]'); } catch (e) { return []; }
+  }
+  function setWatchlist(list) {
+    try { localStorage.setItem(WATCH_KEY, JSON.stringify(list)); } catch (e) {}
+  }
+  function isSaved(id) { return getWatchlist().indexOf(id) > -1; }
+
+  var bookmarkBtns = document.querySelectorAll('.bookmark-btn');
+  function refreshBookmarks() {
+    bookmarkBtns.forEach(function (btn) {
+      var id = btn.getAttribute('data-id');
+      var saved = isSaved(id);
+      btn.classList.toggle('is-active', saved);
+      btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
+    });
+  }
+  bookmarkBtns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var id = btn.getAttribute('data-id');
+      var list = getWatchlist();
+      var idx = list.indexOf(id);
+      if (idx > -1) list.splice(idx, 1); else list.push(id);
+      setWatchlist(list);
+      refreshBookmarks();
+      updateCounts();
+      if (watchlistOnly) applyFilters();
+    });
+  });
+
+  var search = document.getElementById('search');
+  var sections = document.querySelectorAll('.movie-section');
+  var allCards = document.querySelectorAll('.card');
+  var emptyState = document.getElementById('empty-state');
+  var resultMeta = document.getElementById('result-meta');
+  var watchlistBtn = document.getElementById('nav-watchlist');
+  var watchlistCount = document.getElementById('watchlist-count');
+  var watchlistOnly = false;
+
+  function updateCounts() {
+    var n = getWatchlist().length;
+    watchlistCount.textContent = n ? '(' + n + ')' : '';
+  }
+
+  function norm(str) { return (str || '').toLowerCase(); }
+
+  function applyFilters() {
+    var q = norm(search.value.trim());
+    var visible = 0;
+
+    sections.forEach(function (section) {
+      var sectionHasVisible = false;
+
+      section.querySelectorAll('.card').forEach(function (card) {
+        var title = norm(card.getAttribute('data-title'));
+        var id = card.getAttribute('data-id');
+        var matchesQuery = !q || title.indexOf(q) > -1;
+        var matchesWatch = !watchlistOnly || isSaved(id);
+        var show = matchesQuery && matchesWatch;
+        card.style.display = show ? '' : 'none';
+        if (show) { sectionHasVisible = true; visible++; }
+      });
+
+      section.style.display = sectionHasVisible ? '' : 'none';
+    });
+
+    emptyState.style.display = visible === 0 ? 'flex' : 'none';
+    if (emptyState.style.display === 'flex') {
+      emptyState.querySelector('p').textContent = watchlistOnly && !q
+        ? 'Δεν έχεις αποθηκεύσει ακόμα καμία ταινία. Πάτησε το εικονίδιο σελιδοδείκτη σε μια αφίσα.'
+        : 'Καμία ταινία δεν βρέθηκε. Δοκίμασε άλλους όρους αναζήτησης.';
+    }
+    resultMeta.textContent = q ? (visible + (visible === 1 ? ' αποτέλεσμα' : ' αποτελέσματα')) : '';
+  }
+
+  watchlistBtn.addEventListener('click', function () {
+    watchlistOnly = !watchlistOnly;
+    watchlistBtn.classList.toggle('is-active', watchlistOnly);
+    watchlistBtn.setAttribute('aria-pressed', watchlistOnly ? 'true' : 'false');
+    applyFilters();
+    if (watchlistOnly) window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Arriving from another page's search (e.g. movie detail) via ?q=
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('q')) search.value = params.get('q');
+
+  search.addEventListener('input', applyFilters);
+  refreshBookmarks();
+  updateCounts();
+  applyFilters();
+
+  // Staggered reveal as cards scroll into view
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    allCards.forEach(function (card) { observer.observe(card); });
+  } else {
+    allCards.forEach(function (card) { card.classList.add('is-visible'); });
+  }
+
+  // Download-app pop-up: shows a moment after every load (no dismiss-memory
+  // for now, while this is still being reviewed)
+  var backdrop = document.getElementById('app-modal-backdrop');
+  var closeBtn = document.getElementById('app-modal-close');
+  var dismissBtn = document.getElementById('app-modal-dismiss');
+
+  function openModal() { backdrop.classList.add('is-open'); }
+  function closeModal() { backdrop.classList.remove('is-open'); }
+
+  setTimeout(openModal, 1200);
+
+  closeBtn.addEventListener('click', closeModal);
+  dismissBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeModal(); });
+})();
+</script>
+
+</body>
+</html>

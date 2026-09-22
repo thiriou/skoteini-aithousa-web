@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Νύχτες Πρεμιέρας · σκοτεινή αίθουσα</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <p class="site">
+    <a class="logo-link" href="../movies/index.html"><img class="logo" src="https://skoteiniaithousa.gr/assets/logo.png" alt="σκοτεινή αίθουσα"></a>
+    <a class="nav" href="../movies/index.html">Όλες οι ταινίες ▸</a>
+    <a class="nav" href="../simera/index.html">Σήμερα ▸</a>
+    <a class="nav" href="../nees-tainies/index.html">Νέες ▸</a>
+    <a class="nav" href="../therina/index.html">Θερινά ▸</a>
+    <a class="nav" href="../cinemas/index.html">Αίθουσες ▸</a>
+    <a class="nav" href="../prosechos/index.html">Προσεχώς ▸</a>
+    <a class="nav is-active" href="index.html">Φεστιβάλ ▸</a>
+    <a class="lang" hreflang="en" href="https://skoteiniaithousa.gr/nyxtes-premieras?lang=en">EN</a>
+  </p>
+
+  <h1><span class="accent">Νύχτες Πρεμιέρας</span></h1>
+  <p class="intro">32ες Νύχτες Πρεμιέρας · 30 Σεπτεμβρίου – 11 Οκτωβρίου 2026</p>
+
+  <section class="festival-status">
+    <p>Το πρόγραμμα δεν έχει ανακοινωθεί ακόμη. Μόλις βγει, θα το βρείτε εδώ — ταινία-ταινία, με ώρες και αίθουσες.</p>
+    <p class="festival-official"><a href="https://www.aiff.gr/" rel="noopener" target="_blank">Νύχτες Πρεμιέρας — η επίσημη σελίδα ↗</a></p>
+  </section>
+
+  <section class="cta">
+    <p>Ώρες προβολών για όλες τις αίθουσες της Αττικής, θερινά σινεμά και ειδοποιήσεις — στην εφαρμογή.</p>
+    <a class="cta-button" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr">Κατέβασε την εφαρμογή</a>
+    <a class="cta-badge" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr"><img src="https://play.google.com/intl/el/badges/static/images/badges/el_badge_web_generic.png" alt="Διαθέσιμο στο Google Play" loading="lazy"></a>
+  </section>
+</main>
+
+<div class="app-modal-backdrop" id="app-modal-backdrop">
+  <div class="app-modal" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+    <button class="app-modal-close" id="app-modal-close" aria-label="Κλείσιμο">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img src="icon.png" alt="" class="app-modal-icon">
+    <h3 id="app-modal-title">Κατέβασε τη σκοτεινή αίθουσα</h3>
+    <p>Ώρες προβολών, όλες οι αίθουσες και ό,τι χρειάζεσαι για να ξέρεις τι παίζεται στην Αθήνα — δωρεάν στο Google Play.</p>
+    <a class="app-modal-cta" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr">Λήψη από το Google Play</a>
+    <button class="app-modal-dismiss" id="app-modal-dismiss">Όχι τώρα</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var backdrop = document.getElementById('app-modal-backdrop');
+  var closeBtn = document.getElementById('app-modal-close');
+  var dismissBtn = document.getElementById('app-modal-dismiss');
+  function openModal() { backdrop.classList.add('is-open'); }
+  function closeModal() { backdrop.classList.remove('is-open'); }
+  setTimeout(openModal, 1200);
+  closeBtn.addEventListener('click', closeModal);
+  dismissBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeModal(); });
+})();
+</script>
+
+</body>
+</html>

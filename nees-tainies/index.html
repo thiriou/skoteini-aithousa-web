@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Νέες ταινίες αυτή την εβδομάδα στα σινεμά · σκοτεινή αίθουσα</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <p class="site">
+    <a class="logo-link" href="../movies/index.html"><img class="logo" src="https://skoteiniaithousa.gr/assets/logo.png" alt="σκοτεινή αίθουσα"></a>
+    <a class="nav" href="../movies/index.html">Όλες οι ταινίες ▸</a>
+    <a class="nav" href="../simera/index.html">Σήμερα ▸</a>
+    <a class="nav is-active" href="index.html">Νέες ▸</a>
+    <a class="nav" href="../therina/index.html">Θερινά ▸</a>
+    <a class="nav" href="../cinemas/index.html">Αίθουσες ▸</a>
+    <a class="nav" href="../prosechos/index.html">Προσεχώς ▸</a>
+    <a class="nav" href="../nyxtes-premieras/index.html">Φεστιβάλ ▸</a>
+    <a class="lang" hreflang="en" href="https://skoteiniaithousa.gr/nees-tainies?lang=en">EN</a>
+  </p>
+
+  <h1><span class="accent">Νέες ταινίες</span> αυτή την εβδομάδα στα σινεμά</h1>
+  <p class="date">Εβδομάδα Πέμπτης 17 Σεπτεμβρίου</p>
+  <p class="intro">Οι κινηματογράφοι αλλάζουν πρόγραμμα κάθε Πέμπτη. Αυτές είναι οι πρεμιέρες της εβδομάδας — διάλεξε ταινία για περίληψη, ώρες προβολών και αίθουσες.</p>
+
+  <div class="search-bar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="search" id="search" placeholder="Αναζήτηση ταινιών" autocomplete="off">
+  </div>
+
+  <p class="result-meta" id="result-meta"></p>
+  <div class="empty-state" id="empty-state">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <p>Καμία ταινία δεν βρέθηκε.</p>
+  </div>
+
+  <div class="films" id="films">
+    <article class="film" data-title="My Tennis Maestro">
+      <a href="https://skoteiniaithousa.gr/movie/f-tennis-maestro"><img src="https://image.tmdb.org/t/p/w500/6tJSUT4sG1b5H1RLfxsv8mMjoCa.jpg" alt="Αφίσα: My Tennis Maestro"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-tennis-maestro">My Tennis Maestro</a> <span class="year">(2025)</span></h2>
+        <p class="meta">Δράμα · ★ 6.7</p>
+        <p class="overview">Ιταλία, 1989. Μετά από χρόνια σκληρής προπόνησης, ο 13χρονος Φελίτσε, φορώντας στις πλάτες του τις προσδοκίες του πατέρα του, ξεκινά επιτέλους να αγωνίζεται στα εθνικά τουρνουά τένις.</p>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-tennis-maestro">Παίζει σε 7 αίθουσες ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Resident Evil">
+      <a href="https://skoteiniaithousa.gr/movie/f-resident-evil"><img src="https://image.tmdb.org/t/p/w500/i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg" alt="Αφίσα: Resident Evil"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-resident-evil">Resident Evil</a> <span class="year">(2026)</span></h2>
+        <p class="meta">Τρόμου · ★ 7.7</p>
+        <p class="overview">Ο Μπράιαν, ένας ιατρικός κούριερ, χωρίς να το θέλει βρίσκεται μπλεγμένος σε έναν ασταμάτητο αγώνα επιβίωσης, καθώς μια μοιραία φρικιαστική νύχτα διαλύει τα πάντα γύρω του και το χάος επικρατεί.</p>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-resident-evil">Παίζει σε 25 αίθουσες ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Η Επέλαση">
+      <a href="https://skoteiniaithousa.gr/movie/f-i-epelasi"><img src="https://image.tmdb.org/t/p/w500/cOGtvhc6Ij9KvzM6jZsfQyg0B0O.jpg" alt="Αφίσα: Η Επέλαση"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-i-epelasi">Η Επέλαση</a> <span class="year">(2026)</span></h2>
+        <p class="meta">Δράση · ★ 6.1</p>
+        <p class="overview">Όταν μια αδίστακτη ομάδα γενετικά τροποποιημένων υπερστρατιωτών ξεφεύγει στην έρημο, μια στρατιωτικός και ελεύθερη σκοπευτής πρέπει να εξαπολύσει την κόλαση για να προστατεύσει τη μικρή κόρη της.</p>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-i-epelasi">Παίζει σε 2 αίθουσες ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Κωδικός Τεχεράνη">
+      <a href="https://skoteiniaithousa.gr/movie/f-the-fix"><img src="https://image.tmdb.org/t/p/w500/yopXjun3ICFfJci2ukcEzceZjUs.jpg" alt="Αφίσα: Κωδικός Τεχεράνη"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-the-fix">Κωδικός Τεχεράνη</a> <span class="year">(2026)</span></h2>
+        <p class="meta">Δράση · ★ 4.7</p>
+        <p class="overview">Ύστερα από μια αποτυχημένη αποστολή, ο Τάκερ, πρώην πράκτορας της CIA, οδηγεί μια ομάδα απογοητευμένων πρώην κατασκόπων στην αναζήτηση εκατομμυρίων δολαρίων σε μετρητά.</p>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-the-fix">Παίζει σε 12 αίθουσες ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Κότα">
+      <a href="https://skoteiniaithousa.gr/movie/f-kota"><img src="https://image.tmdb.org/t/p/w500/rfiyrjBJqu3mvmmmnfQyqU5SU5O.jpg" alt="Αφίσα: Κότα"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-kota">Κότα</a> <span class="year">(2026)</span></h2>
+        <p class="meta">Περιπέτεια · ★ 7.0</p>
+        <p class="overview">Το φιλμ ακολουθεί την περιπετειώδη ιστορία μιας κότας που θέλει απεγνωσμένα να φτιάξει οικογένεια, ενώ στο παρασκήνιο εκτυλίσσεται μια τρομερή ανθρώπινη τραγωδία.</p>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-kota">Παίζει σε 12 αίθουσες ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Παραλληλες Ιστοριες">
+      <a href="https://skoteiniaithousa.gr/movie/f-paralliles-istories"><img src="https://image.tmdb.org/t/p/w500/kYuMXWSi8gmR9kmVPLlTAzXx2iy.jpg" alt="Αφίσα: Παραλληλες Ιστοριες"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-paralliles-istories">Παραλληλες Ιστοριες</a> <span class="year">(2026)</span></h2>
+        <p class="meta">Μυστηρίου · ★ 5.9</p>
+        <p class="overview">Αναζητώντας έμπνευση για το νέο της μυθιστόρημα, η Σίλβι παρακολουθεί τους γείτονές της στην πολυκατοικία απέναντι με τη βοήθεια ενός τηλεσκοπίου.</p>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-paralliles-istories">Παίζει σε 23 αίθουσες ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Ράλλυ Από Το Παρίσι Στις Πυραμίδες">
+      <a href="https://skoteiniaithousa.gr/movie/f-rally-apo-to-parisi-stis-pyramides"><img src="https://image.tmdb.org/t/p/w500/1kClIiFGtlxyqp4Gmw3znLi6GtF.jpg" alt="Αφίσα: Ράλλυ Από Το Παρίσι Στις Πυραμίδες"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-rally-apo-to-parisi-stis-pyramides">Ράλλυ Από Το Παρίσι Στις Πυραμίδες</a> <span class="year">(2025)</span></h2>
+        <p class="meta">Κινούμενα Σχέδια · ★ 6.6</p>
+        <p class="overview">Αυτή η περιπέτεια γεμάτη δράση για όλη την οικογένεια ακολουθεί τον Ρέοδορ Φέλγκεν, έναν λαμπρό αλλά εκκεντρικό εφευρέτη, και τους δύο απρόσμενους φίλους του.</p>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-rally-apo-to-parisi-stis-pyramides">Παίζει σε 5 αίθουσες ▸</a>
+      </div>
+    </article>
+
+    <article class="film" data-title="Τρυφερό Κτήνος">
+      <a href="https://skoteiniaithousa.gr/movie/f-gentle-monster"><img src="https://image.tmdb.org/t/p/w500/q78GSgaUgVEfZV48J9qYY6OJANQ.jpg" alt="Αφίσα: Τρυφερό Κτήνος"></a>
+      <div class="film-info">
+        <h2><a href="https://skoteiniaithousa.gr/movie/f-gentle-monster">Τρυφερό Κτήνος</a> <span class="year">(2026)</span></h2>
+        <p class="meta">Δράμα · ★ 6.6</p>
+        <p class="overview">Αφού μετακόμισε με την οικογένειά της στην ύπαιθρο, μια διάσημη πιανίστα ανακαλύπτει μια αλήθεια που ανατρέπει τη ζωή της.</p>
+        <a class="more" href="https://skoteiniaithousa.gr/movie/f-gentle-monster">Παίζει σε 15 αίθουσες ▸</a>
+      </div>
+    </article>
+  </div>
+
+  <section class="cta">
+    <p>Ώρες προβολών, αίθουσες κοντά σου, θερινά σινεμά και ειδοποιήσεις — στην εφαρμογή.</p>
+    <a class="cta-button" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr">Κατέβασε την εφαρμογή</a>
+    <a class="cta-badge" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr"><img src="https://play.google.com/intl/el/badges/static/images/badges/el_badge_web_generic.png" alt="Διαθέσιμο στο Google Play" loading="lazy"></a>
+  </section>
+</main>
+
+<div class="app-modal-backdrop" id="app-modal-backdrop">
+  <div class="app-modal" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+    <button class="app-modal-close" id="app-modal-close" aria-label="Κλείσιμο">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img src="icon.png" alt="" class="app-modal-icon">
+    <h3 id="app-modal-title">Κατέβασε τη σκοτεινή αίθουσα</h3>
+    <p>Ώρες προβολών, όλες οι αίθουσες και ό,τι χρειάζεσαι για να ξέρεις τι παίζεται στην Αθήνα — δωρεάν στο Google Play.</p>
+    <a class="app-modal-cta" href="https://play.google.com/store/apps/details?id=com.blackcasper.cinemagr">Λήψη από το Google Play</a>
+    <button class="app-modal-dismiss" id="app-modal-dismiss">Όχι τώρα</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var search = document.getElementById('search');
+  var films = document.querySelectorAll('.film');
+  var emptyState = document.getElementById('empty-state');
+  var resultMeta = document.getElementById('result-meta');
+
+  function norm(str) { return (str || '').toLowerCase(); }
+
+  function applyFilter() {
+    var q = norm(search.value.trim());
+    var visible = 0;
+    films.forEach(function (f) {
+      var show = !q || norm(f.getAttribute('data-title')).indexOf(q) > -1;
+      f.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    emptyState.style.display = visible === 0 ? 'flex' : 'none';
+    resultMeta.textContent = q ? (visible + (visible === 1 ? ' αποτέλεσμα' : ' αποτελέσματα')) : '';
+  }
+
+  search.addEventListener('input', applyFilter);
+  applyFilter();
+
+  var backdrop = document.getElementById('app-modal-backdrop');
+  var closeBtn = document.getElementById('app-modal-close');
+  var dismissBtn = document.getElementById('app-modal-dismiss');
+  function openModal() { backdrop.classList.add('is-open'); }
+  function closeModal() { backdrop.classList.remove('is-open'); }
+  setTimeout(openModal, 1200);
+  closeBtn.addEventListener('click', closeModal);
+  dismissBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeModal(); });
+})();
+</script>
+
+</body>
+</html>
